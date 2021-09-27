@@ -1,3 +1,23 @@
 <div class="container"> 
-    To Be Completed
+    <form [formGroup] = "inputNumberForm" >
+    <div class="form-group">
+        <label for="title">Number to convert</label>
+        <input
+          type="number"
+          class="form-control"
+          id="inputNumber"
+          placeholder="inputNumber"
+          name="inputNumber"
+          [(ngModel)]="inputNumber"
+          formControlName="inputNumber"/>
+      </div>
+      <div *ngIf="inputNumberForm.controls['inputNumber'].invalid && inputNumberForm.controls['inputNumber'].touched">
+        <div *ngIf="inputNumberForm.controls['inputNumber'].errors.required" style="color: red">
+          The input number is required
+        </div>
+      </div>
+      <div >
+           <button class="btn btn-primary" (click)="submitNumber()" [disabled]="inputNumberForm.invalid">Convert</button>
+      </div>
+    </form>
 </div>
