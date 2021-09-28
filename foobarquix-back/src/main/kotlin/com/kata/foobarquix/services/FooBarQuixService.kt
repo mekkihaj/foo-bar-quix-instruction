@@ -13,10 +13,20 @@ class FooBarQuixService {
         if (inputNumber % 5 == 0) {
             result.append("Bar");
         }
+        if (inputNumber % 7 == 0) {
+            result.append("Quix");
+        }
 
         val inputNumberStr: String = inputNumber.toString();
         val inputNumberCharArray: CharArray = inputNumberStr.toCharArray();
         for(i in inputNumberCharArray) {
+            if (i == '0') {
+                if(inputNumberStr.length == 1){
+                  result.clear();
+                }
+                
+                result.append("Buzz");
+            }
             if (i == '3') {
                 result.append("Foo");
             }
